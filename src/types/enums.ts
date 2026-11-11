@@ -1,9 +1,10 @@
+// Values match KeyboardEvent.key
 export enum GameKey {
-    UP = 38,
-    DOWN = 40,
-    LEFT = 37,
-	RIGHT = 39,
-	SPACEBAR = 32
+	UP = "ArrowUp",
+	DOWN = "ArrowDown",
+	LEFT = "ArrowLeft",
+	RIGHT = "ArrowRight",
+	SPACEBAR = " "
 }
 
 export enum ScreenEdge {

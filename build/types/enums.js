@@ -1,9 +1,11 @@
+// Values match KeyboardEvent.key
 export var GameKey;
 (function (GameKey) {
-    GameKey[GameKey["UP"] = 38] = "UP";
-    GameKey[GameKey["DOWN"] = 40] = "DOWN";
-    GameKey[GameKey["LEFT"] = 37] = "LEFT";
-    GameKey[GameKey["RIGHT"] = 39] = "RIGHT";
+    GameKey["UP"] = "ArrowUp";
+    GameKey["DOWN"] = "ArrowDown";
+    GameKey["LEFT"] = "ArrowLeft";
+    GameKey["RIGHT"] = "ArrowRight";
+    GameKey["SPACEBAR"] = " ";
 })(GameKey || (GameKey = {}));
 export var ScreenEdge;
 (function (ScreenEdge) {

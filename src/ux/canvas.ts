@@ -8,7 +8,9 @@
 
         el.height = Canvas.height;
         el.width = Canvas.width;
-        Canvas.context = el.getContext("2d");
+        let context = el.getContext("2d");
+        if (!context) { throw new Error("2D canvas is not supported"); }
+        Canvas.context = context;
     }
 
     public static fill(color: string) {

@@ -3,9 +3,9 @@ import { Game } from '../game.js'
 
 export class Controls {
 
-    static last_key: number = null
-    
-    static on_key_up = (ev: KeyboardEvent) => { Controls.last_key = ev.keyCode }
+    static last_key: string | null = null
+
+    static on_key_up = (ev: KeyboardEvent) => { Controls.last_key = ev.key }
 
     static process_input() {
 

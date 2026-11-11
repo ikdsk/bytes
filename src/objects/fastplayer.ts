@@ -4,13 +4,14 @@ import { Snake, Coin } from './index.js'
 
 export class FastPlayer implements IGameObject {
 
-	public static instances: { [index: number]: Coin } = { }
+	public static instances: { [index: number]: FastPlayer } = { }
 	public static items_index: number = 0
 	public static items_active: number = 0
 
 	public index: number
 	public color = "#3366FF"
-	public position: Position
+	// Assigned by Board.place_object() when the item is put on the board
+	public position!: Position
 
 	constructor() {
 

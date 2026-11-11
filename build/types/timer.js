@@ -10,7 +10,10 @@ export var ClockTick;
 })(ClockTick || (ClockTick = {}));
 export class Timer {
     constructor(interval, duration, handler) {
+        this.handle = 0;
         this.tick = ClockTick.EVEN;
+        this.is_running = false;
+        this.is_paused = false;
         this.handler = () => { console.log("No clock event"); };
         this.on_elapsed = () => {
             if (this.is_paused) {
