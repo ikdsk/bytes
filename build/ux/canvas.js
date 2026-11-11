@@ -2,7 +2,11 @@ export class Canvas {
     static init(el) {
         el.height = Canvas.height;
         el.width = Canvas.width;
-        Canvas.context = el.getContext("2d");
+        let context = el.getContext("2d");
+        if (!context) {
+            throw new Error("2D canvas is not supported");
+        }
+        Canvas.context = context;
     }
     static fill(color) {
         Canvas.context.beginPath();

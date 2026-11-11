@@ -20,7 +20,7 @@ export class SnakeSegment implements IGameObject {
         ] 
 
         this.color_index++
-        if (this.color_index > colors.length) { this.color_index = 0 }
+        if (this.color_index >= colors.length) { this.color_index = 0 }
         return colors[this.color_index]
     }
             

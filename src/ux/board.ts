@@ -11,7 +11,8 @@ export class Board {
     public static height = 0
     public static width = 0
 
-    public static grid: IDrawable[][]
+    // Each cell holds the object on that square, or null when it is empty
+    public static grid: (IDrawable | null)[][]
 
     public static place_object(object: IDrawable, position: Position) {
 
@@ -42,13 +43,13 @@ export class Board {
         Board.move_object(object, position)
     }
     
-    public static generate_random_position() {
+    public static generate_random_position(): Position {
 
-        var position: Position
-        while (!position) {
+        // Keep picking random squares until we find an empty one
+        while (true) {
 
-            var x = Math.floor(Math.random() * Board.width)
-            var y = Math.floor(Math.random() * Board.height)
+            let x = Math.floor(Math.random() * Board.width)
+            let y = Math.floor(Math.random() * Board.height)
             if (!Board.grid[x][y]) { return new Position(x, y) }
         }
     }
@@ -61,7 +62,7 @@ export class Board {
         Board.grid = new Array(Board.width)
         for (var i = 0, ii = Board.width; i != ii; ++i) {
             
-            Board.grid[i] = new Array(Board.height)
+            Board.grid[i] = new Array(Board.height).fill(null)
         }
     }
     
@@ -73,7 +74,8 @@ export class Board {
 
             for (var cy = 0; cy < Board.height; cy++) {
 
-                if (Board.grid[cx][cy]) { Board.grid[cx][cy].draw() }
+                let object = Board.grid[cx][cy]
+                if (object) { object.draw() }
             }
         }
     }

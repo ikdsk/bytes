@@ -1,10 +1,6 @@
 import { Canvas } from '../ux/canvas.js';
 import { Board } from '../ux/board.js';
 export class SnakeSegment {
-    constructor(position) {
-        this.color_index = 0;
-        this.position = position;
-    }
     color() {
         let colors = [
             "#FF0000", "#FF9966",
@@ -13,10 +9,14 @@ export class SnakeSegment {
             "#7966FF", "#F366FF"
         ];
         this.color_index++;
-        if (this.color_index > colors.length) {
+        if (this.color_index >= colors.length) {
             this.color_index = 0;
         }
         return colors[this.color_index];
+    }
+    constructor(position) {
+        this.color_index = 0;
+        this.position = position;
     }
     draw() {
         var boardX = (this.position.X * Board.block_size);

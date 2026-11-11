@@ -15,8 +15,7 @@ export class Game {
         
         Canvas.init(<HTMLCanvasElement>document.querySelector("canvas"))
 
-        let body: HTMLBodyElement = document.querySelector("body")
-        body.onkeyup = Controls.on_key_up              
+        document.body.onkeyup = Controls.on_key_up
         
         Game.ready()
     }              

@@ -21,10 +21,10 @@ export class Board {
         Board.move_object(object, position);
     }
     static generate_random_position() {
-        var position;
-        while (!position) {
-            var x = Math.floor(Math.random() * Board.width);
-            var y = Math.floor(Math.random() * Board.height);
+        // Keep picking random squares until we find an empty one
+        while (true) {
+            let x = Math.floor(Math.random() * Board.width);
+            let y = Math.floor(Math.random() * Board.height);
             if (!Board.grid[x][y]) {
                 return new Position(x, y);
             }
@@ -35,15 +35,16 @@ export class Board {
         Board.width = Canvas.width / Board.block_size;
         Board.grid = new Array(Board.width);
         for (var i = 0, ii = Board.width; i != ii; ++i) {
-            Board.grid[i] = new Array(Board.height);
+            Board.grid[i] = new Array(Board.height).fill(null);
         }
     }
     static draw() {
         Canvas.fill(Board.bg_color);
         for (var cx = 0; cx < Board.width; cx++) {
             for (var cy = 0; cy < Board.height; cy++) {
-                if (Board.grid[cx][cy]) {
-                    Board.grid[cx][cy].draw();
+                let object = Board.grid[cx][cy];
+                if (object) {
+                    object.draw();
                 }
             }
         }

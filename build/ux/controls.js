@@ -26,11 +26,11 @@ export class Controls {
                     Game.player_one.direction = Direction.RIGHT;
                 }
                 break;
-            case 32:
+            case GameKey.SPACEBAR:
                 Game.player_one.jump();
         }
         Controls.last_key = null;
     }
 }
 Controls.last_key = null;
-Controls.on_key_up = (ev) => { Controls.last_key = ev.keyCode; };
+Controls.on_key_up = (ev) => { Controls.last_key = ev.key; };

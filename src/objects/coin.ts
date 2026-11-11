@@ -11,7 +11,8 @@ export class Coin implements IGameObject {
 
 	public index: number
 	public value: number
-	public position: Position
+	// Assigned by Board.place_object() when the coin is put on the board
+	public position!: Position
 
 	public constructor(value: number) {
 

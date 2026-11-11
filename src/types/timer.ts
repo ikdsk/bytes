@@ -3,13 +3,13 @@ export enum ClockTick { EVEN, ODD }
 
 export class Timer {
 
-    private handle: number
+    private handle: number = 0
     private interval: number
 
     public type: ClockType
     public tick: ClockTick = ClockTick.EVEN
-    public is_running: boolean
-    public is_paused: boolean
+    public is_running: boolean = false
+    public is_paused: boolean = false
 
     private handler: () => any = () => { console.log("No clock event") }
 
